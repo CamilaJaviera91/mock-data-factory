@@ -30,8 +30,12 @@
 │   ├── macros
 │   │   └── .gitkeep
 │   ├── models
-│   │   └── example
-│   │       └── schema.yml
+│   │   ├── client.sql
+|   |   ├── orders.sql
+|   |   ├── product.sql
+│   │   └── schema.yml
+│   ├── scripts
+│   │   └── generate_fake_data.py
 │   ├── README.md
 │   ├── seeds
 │   │   └── .gitkeep
