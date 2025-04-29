@@ -19,15 +19,26 @@ This project is ideal for testing, prototyping, and demonstrating data pipelines
 ## 🗂️ Project Structure
 
 ```
-mock-data-factory/
-├── dbt_project.yml              ✅ Project configuration
-├── README.md                    ✅ Clear project documentation
-├── .gitignore               
-├── models/
-│   └── mock_data/               ✅ Organized model directory
-│       ├── customers.sql        ✅ Synthetic data generation logic
-│       └── schema.yml           ✅ Model descriptions and tests
-├── macros/
-│   └── .gitkeep                 ✅ Ready for future reusable macros
+├── .gitignore
+├── logs
+│   └── dbt.log
+├── mockdata
+│   ├── analyses
+│   │   └── .gitkeep
+│   ├── dbt_project.yml
+│   ├── .gitignore
+│   ├── macros
+│   │   └── .gitkeep
+│   ├── models
+│   │   └── example
+│   │       └── schema.yml
+│   ├── README.md
+│   ├── seeds
+│   │   └── .gitkeep
+│   ├── snapshots
+│   │   └── .gitkeep
+│   └── tests
+│       └── .gitkeep
+└── README.md
 ```
 
