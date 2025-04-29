@@ -1,2 +1,2 @@
 -- models/orden.sql
-SELECT * FROM {{ source('public', 'orders') }}
+SELECT * FROM {{ source('test', 'orders') }}
