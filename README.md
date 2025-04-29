@@ -48,9 +48,13 @@ This project is ideal for testing, prototyping, and demonstrating data pipelines
 
 Try running the following commands.
 
+- Builds or materializes the tables/views based on your transformations.
+
 ```
 dbt run
 ```
+
+- Runs checks on the data to ensure quality and correctness.
 
 ```
 dbt test
