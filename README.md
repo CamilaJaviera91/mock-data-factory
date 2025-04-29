@@ -19,15 +19,14 @@ This project is ideal for testing, prototyping, and demonstrating data pipelines
 ## 🗂️ Project Structure
 
 ```
-mock-data-factory/ 
-├── dbt_project.yml 
-├── packages.yml 
-├── models/ 
-│ └── mock_data/ 
-│ ├── customers.sql 
-│ ├── products.sql 
-│ ├── orders.sql 
-│ └── schema.yml 
-└── macros/ 
-└── (optional macros)
+mock-data-factory/
+├── dbt_project.yml              ✅ Project configuration
+├── README.md                    ✅ Clear project documentation
+├── models/
+│   └── mock_data/               ✅ Organized model directory
+│       ├── customers.sql        ✅ Synthetic data generation logic
+│       └── schema.yml           ✅ Model descriptions and tests
+├── macros/
+│   └── .gitkeep                 ✅ Ready for future reusable macros
 ```
+
