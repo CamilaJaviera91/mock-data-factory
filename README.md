@@ -22,6 +22,7 @@ This project is ideal for testing, prototyping, and demonstrating data pipelines
 mock-data-factory/
 ├── dbt_project.yml              ✅ Project configuration
 ├── README.md                    ✅ Clear project documentation
+├── .gitignore               
 ├── models/
 │   └── mock_data/               ✅ Organized model directory
 │       ├── customers.sql        ✅ Synthetic data generation logic
