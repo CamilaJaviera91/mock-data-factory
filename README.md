@@ -74,19 +74,15 @@ dbt test
 
 ### 📋 Features
 
-- Automatically creates required tables (client, product, orders)
+- SQL-based data generation tailored for BigQuery.
 
-- Populates:
+- Modular models for entities like customers, products, and orders.
 
-    - 200 fake clients
+- Parameterized row volume, allowing generation of datasets with varying sizes (e.g., 10K, 1M rows).
 
-    - 30 pre-defined products across categories
+- DBT-ready structure for scalable development.
 
-    - 500 randomized orders with realistic dates and values
-
-- Uses Python's psycopg2 and Faker libraries
-
-- Customizable and easy to extend
+- Easy integration with data pipeline tools such as Airflow and Cloud Composer.
 
 ---
 
@@ -186,7 +182,7 @@ I have other related repositories that might be of interest:​
 
 - ```sql-mock-data:``` This repository appears to be an earlier version or a related project focusing on SQL-based mock data generation.
 
-- ```dbt-transformations-sql-mock-data:``` This project contains transformations and documentation for the data model generated in sql-mock-data.​
+- ```dbt-transformations-sql-mock-data:``` This project contains transformations and documentation for the data model generated in ```sql-mock-data```.​
 
 ---
 
