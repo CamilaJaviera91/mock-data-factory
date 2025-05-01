@@ -162,6 +162,16 @@ You'll see log messages indicating progress:
 | price       | NUMERIC(10,2)       |
 | category    | TEXT                |
 
+```orders```
+| Column      | Type                    |
+|-------------|-------------------------|
+| order_id    | SERIAL PRIMARY KEY      |
+| client_id   | INTEGER (FK to client)  |
+| product_id  | INTEGER (FK to product) |
+| order_date  | DATE                    |
+| quantity    | INTEGER                 |
+| total       | NUMERIC(10,2)           |
+
 ---
 
 ## Resources:
