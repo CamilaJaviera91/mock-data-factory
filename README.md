@@ -180,12 +180,13 @@ To generate more or fewer rows, change the arguments in generate_clients(), gene
 
 ---
 
-## 📚 Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## 📚 Learn More About dbt
+
+- 📖 **Read the [official dbt documentation](https://docs.getdbt.com/docs/introduction)** — A great starting point to understand how dbt works and how to get started.
+- 💬 **Visit [Discourse](https://discourse.getdbt.com/)** — Explore frequently asked questions and community discussions.
+- 💻 **Join the [dbt Slack community](https://community.getdbt.com/)** — Get live support, ask questions, and connect with other data practitioners.
+- 📅 **Browse upcoming [dbt events](https://events.getdbt.com)** — Find webinars, meetups, and conferences near you.
+- 📰 **Read the [dbt blog](https://blog.getdbt.com/)** — Stay up to date with product updates, best practices, and community highlights.
 
 ---
 
