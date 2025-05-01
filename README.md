@@ -70,6 +70,8 @@ dbt test
 
 - This script generates synthetic data for a PostgreSQL database using the Faker library. It creates and populates three tables: client, product, and orders, useful for testing analytics workflows, dashboards, or data pipelines.
 
+---
+
 ### 📋 Features
 
 - Automatically creates required tables (client, product, orders)
@@ -86,6 +88,7 @@ dbt test
 
 - Customizable and easy to extend
 
+---
 
 ### 🚀 Setup
 
@@ -102,6 +105,21 @@ Install dependencies:
 ```
 pip install faker psycopg2
 ```
+
+#### Step 2: Configure Database Connection
+
+Update the PostgreSQL credentials in the script:
+
+```
+conn = psycopg2.connect(
+    host="localhost",
+    database="db_name",
+    user="user_name",
+    password="*****"
+)
+```
+
+- Adjust the values to match your environment.
 
 ---
 
