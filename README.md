@@ -141,6 +141,21 @@ You'll see log messages indicating progress:
 ```
 ---
 
+## 🗃️ Table Schemas
+
+```client```
+
+| Column    | Type               |
+|-----------|--------------------|
+| client_id | SERIAL PRIMARY KEY |
+| name      | TEXT               |
+| email     | TEXT               |
+| address   | TEXT               |
+| city      | TEXT               |
+| country   | TEXT               |
+
+---
+
 ## Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
