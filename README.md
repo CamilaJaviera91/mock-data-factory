@@ -154,6 +154,14 @@ You'll see log messages indicating progress:
 | city      | TEXT               |
 | country   | TEXT               |
 
+```product```
+| Column      | Type                |
+|-------------|---------------------|
+| product_id  | SERIAL PRIMARY KEY  |
+| name        | TEXT                |
+| price       | NUMERIC(10,2)       |
+| category    | TEXT                |
+
 ---
 
 ## Resources:
