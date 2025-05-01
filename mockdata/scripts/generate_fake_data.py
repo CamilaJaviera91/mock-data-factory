@@ -69,31 +69,37 @@ def generate_products():
     product_names = [
         # Electronics
         "Smartwatch Z3", "UltraSound Speaker", "Quantum Laptop Pro", "Solar Power Bank", "VR Vision Headset",
+        "Noise-Canceling Earbuds",
         # Home
         "Bamboo Cutting Board", "EcoSmart Kettle", "Smart Air Purifier", "Velvet Throw Blanket", "LED Mood Lamp",
+        "Organic Cotton Towels",
         # Sports
         "Carbon Fiber Tennis Racket", "ProFit Yoga Mat", "TrailMax Running Shoes", "SpeedX Bicycle Helmet", "UltraGrip Soccer Ball",
+        "Adjustable Dumbbell Set",
         # Fashion
         "UrbanWear Denim Jacket", "Classic Leather Boots", "Elegant Silk Scarf", "StreetFit Hoodie", "Gold Hoop Earrings",
+        "Minimalist Wristwatch",
         # Books
-        "The Edge of Tomorrow", "Mastering Data Science", "A Brief History of AI", "The Art of Minimalism", "Cooking for Coders"
+        "The Edge of Tomorrow", "Mastering Data Science", "A Brief History of AI", "The Art of Minimalism", "Cooking for Coders",
+        "Design Patterns Explained"
     ]
 
     categories = {
+        # Electronics
         "Smartwatch Z3": "Electronics", "UltraSound Speaker": "Electronics", "Quantum Laptop Pro": "Electronics",
-        "Solar Power Bank": "Electronics", "VR Vision Headset": "Electronics",
-
+        "Solar Power Bank": "Electronics", "VR Vision Headset": "Electronics", "Noise-Canceling Earbuds": "Electronics",
+        # Home
         "Bamboo Cutting Board": "Home", "EcoSmart Kettle": "Home", "Smart Air Purifier": "Home",
-        "Velvet Throw Blanket": "Home", "LED Mood Lamp": "Home",
-
+        "Velvet Throw Blanket": "Home", "LED Mood Lamp": "Home", "Organic Cotton Towels": "Home",
+        # Sports
         "Carbon Fiber Tennis Racket": "Sports", "ProFit Yoga Mat": "Sports", "TrailMax Running Shoes": "Sports",
-        "SpeedX Bicycle Helmet": "Sports", "UltraGrip Soccer Ball": "Sports",
-
+        "SpeedX Bicycle Helmet": "Sports", "UltraGrip Soccer Ball": "Sports", "Adjustable Dumbbell Set": "Sports",
+        # Fashion
         "UrbanWear Denim Jacket": "Fashion", "Classic Leather Boots": "Fashion", "Elegant Silk Scarf": "Fashion",
-        "StreetFit Hoodie": "Fashion", "Gold Hoop Earrings": "Fashion",
-
+        "StreetFit Hoodie": "Fashion", "Gold Hoop Earrings": "Fashion", "Minimalist Wristwatch": "Fashion",
+        # Books
         "The Edge of Tomorrow": "Books", "Mastering Data Science": "Books", "A Brief History of AI": "Books",
-        "The Art of Minimalism": "Books", "Cooking for Coders": "Books"
+        "The Art of Minimalism": "Books", "Cooking for Coders": "Books", "Design Patterns Explained": "Books"
     }
 
     for name in product_names:
@@ -104,7 +110,7 @@ def generate_products():
             VALUES (%s, %s, %s)
         """, (name, price, category))
 
-    conn.commit()
+    conn.commit()    
     print(f"✅ Inserted {len(product_names)} products.")
 
 # Generate orders
