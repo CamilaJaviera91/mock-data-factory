@@ -92,7 +92,7 @@ dbt test
 
 ### 🚀 Setup
 
-#### Step 1: Prerequisites
+#### ⚙️ Step 1: Prerequisites
 
 Make sure you have the following installed:
 
@@ -106,7 +106,7 @@ Install dependencies:
 pip install faker psycopg2
 ```
 
-#### Step 2: Configure Database Connection
+#### 🔗 Step 2: Configure Database Connection
 
 Update the PostgreSQL credentials in the script:
 
@@ -121,7 +121,7 @@ conn = psycopg2.connect(
 
 - Adjust the values to match your environment.
 
-#### Step 3: Run the Script
+#### ▶️ Step 3: Run the Script
 
 Once configured, run the script:
 
