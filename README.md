@@ -180,6 +180,16 @@ To generate more or fewer rows, change the arguments in generate_clients(), gene
 
 ---
 
+## 📎 Related Projects
+
+I have other related repositories that might be of interest:​
+
+- ```sql-mock-data:``` This repository appears to be an earlier version or a related project focusing on SQL-based mock data generation.
+
+- ```dbt-transformations-sql-mock-data:``` This project contains transformations and documentation for the data model generated in sql-mock-data.​
+
+---
+
 ## 📚 Learn More About dbt
 
 - 📖 **Read the [official dbt documentation](https://docs.getdbt.com/docs/introduction)** — A great starting point to understand how dbt works and how to get started.
@@ -190,15 +200,6 @@ To generate more or fewer rows, change the arguments in generate_clients(), gene
 
 ---
 
-## 📎 Related Projects
-
-I have other related repositories that might be of interest:​
-
-- ```sql-mock-data:``` This repository appears to be an earlier version or a related project focusing on SQL-based mock data generation.
-
-- ```dbt-transformations-sql-mock-data:``` This project contains transformations and documentation for the data model generated in sql-mock-data.​
-
----
 ## 📄 License
 
 This project is released under the MIT License.
