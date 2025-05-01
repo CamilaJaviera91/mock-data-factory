@@ -3,13 +3,18 @@ import psycopg2
 import random
 
 # Configure PostgreSQL connection
-conn = psycopg2.connect(
-    host="localhost",     # Change this if your DB is on another host
-    database="postgres",  # Change to your actual database name
-    user="admin",         # Your PostgreSQL username
-    password="admin123"   # Your PostgreSQL password
-)
-cur = conn.cursor()
+try:
+    conn = psycopg2.connect(
+        host="localhost",     # Change this if your DB is on another host
+        database="postgres",  # Change to your actual database name
+        user="admin",         # Your PostgreSQL username
+        password="admin123"   # Your PostgreSQL password
+    )
+    cur = conn.cursor()
+    print("✅ Successfully connected to PostgreSQL.")
+except Exception as e:
+    print("❌ Failed to connect to PostgreSQL:", e)
+    exit()
 
 fake = Faker()
 
@@ -41,6 +46,7 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 """)
 conn.commit()
+print("✅ Tables created or verified.")
 
 # Generate clients
 def generate_clients(n=200):
@@ -56,8 +62,9 @@ def generate_clients(n=200):
             fake.country()
         ))
     conn.commit()
+    print(f"✅ Inserted {n} clients.")
 
-# Updated generate_products function with fixed product names
+# Generate products
 def generate_products():
     product_names = [
         # Electronics
@@ -98,12 +105,13 @@ def generate_products():
         """, (name, price, category))
 
     conn.commit()
+    print(f"✅ Inserted {len(product_names)} products.")
 
 # Generate orders
 def generate_orders(n=500):
     for _ in range(n):
-        client_id = random.randint(1, 100)
-        product_id = random.randint(1, 50)
+        client_id = random.randint(1, 200)
+        product_id = random.randint(1, 30)  # Use the correct range based on actual inserted products
         quantity = random.randint(1, 5)
         unit_price = round(random.uniform(10.0, 1000.0), 2)
         total = round(quantity * unit_price, 2)
@@ -118,6 +126,7 @@ def generate_orders(n=500):
             total
         ))
     conn.commit()
+    print(f"✅ Inserted {n} orders.")
 
 # Run generation functions
 generate_clients()
@@ -127,3 +136,4 @@ generate_orders()
 # Close connection
 cur.close()
 conn.close()
+print("✅ PostgreSQL connection closed. Data generation complete.")
