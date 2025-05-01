@@ -174,6 +174,12 @@ You'll see log messages indicating progress:
 
 ---
 
+## 🛠️ Customization
+
+To generate more or fewer rows, change the arguments in generate_clients(), generate_products(), or generate_orders(). You can modify the list of product names and categories to suit your business domain.
+
+---
+
 ## Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
