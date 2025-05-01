@@ -121,6 +121,24 @@ conn = psycopg2.connect(
 
 - Adjust the values to match your environment.
 
+#### Step 3: Run the Script
+
+Once configured, run the script:
+
+```
+python generate_fake_data.py
+```
+
+You'll see log messages indicating progress:
+
+```
+✅ Successfully connected to PostgreSQL.
+✅ Tables created or verified.
+✅ Inserted 200 clients.
+✅ Inserted 30 products.
+✅ Inserted 500 orders.
+✅ PostgreSQL connection closed. Data generation complete.
+```
 ---
 
 ## Resources:
