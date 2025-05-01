@@ -181,7 +181,7 @@ To generate more or fewer rows, change the arguments in generate_clients(), gene
 I have other related repositories that might be of interest:​
 
 - ```sql-mock-data:``` Earlier version or a related project focusing on SQL-based mock data generation.
-    - [srepository](https://github.com/CamilaJaviera91/sql-mock-data)
+    - [repository](https://github.com/CamilaJaviera91/sql-mock-data)
 
 - ```dbt-transformations-sql-mock-data:``` This project contains transformations and documentation for the data model generated in ```sql-mock-data```.​
     - [repository](https://github.com/CamilaJaviera91/dbt-transformations-sql-mock-data)
