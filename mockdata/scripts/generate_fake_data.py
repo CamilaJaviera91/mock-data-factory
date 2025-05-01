@@ -6,7 +6,7 @@ import random
 conn = psycopg2.connect(
     host="localhost",     # Change this if your DB is on another host
     database="postgres",  # Change to your actual database name
-    user="postgres",      # Your PostgreSQL username
+    user="admin",         # Your PostgreSQL username
     password="admin123"   # Your PostgreSQL password
 )
 cur = conn.cursor()
@@ -57,18 +57,46 @@ def generate_clients(n=100):
         ))
     conn.commit()
 
-# Generate products
-def generate_products(n=50):
-    categories = ['Electronics', 'Home', 'Sports', 'Fashion', 'Books']
-    for _ in range(n):
+# Updated generate_products function with fixed product names
+def generate_products():
+    product_names = [
+        # Electronics
+        "Smartwatch Z3", "UltraSound Speaker", "Quantum Laptop Pro", "Solar Power Bank", "VR Vision Headset",
+        # Home
+        "Bamboo Cutting Board", "EcoSmart Kettle", "Smart Air Purifier", "Velvet Throw Blanket", "LED Mood Lamp",
+        # Sports
+        "Carbon Fiber Tennis Racket", "ProFit Yoga Mat", "TrailMax Running Shoes", "SpeedX Bicycle Helmet", "UltraGrip Soccer Ball",
+        # Fashion
+        "UrbanWear Denim Jacket", "Classic Leather Boots", "Elegant Silk Scarf", "StreetFit Hoodie", "Gold Hoop Earrings",
+        # Books
+        "The Edge of Tomorrow", "Mastering Data Science", "A Brief History of AI", "The Art of Minimalism", "Cooking for Coders"
+    ]
+
+    categories = {
+        "Smartwatch Z3": "Electronics", "UltraSound Speaker": "Electronics", "Quantum Laptop Pro": "Electronics",
+        "Solar Power Bank": "Electronics", "VR Vision Headset": "Electronics",
+
+        "Bamboo Cutting Board": "Home", "EcoSmart Kettle": "Home", "Smart Air Purifier": "Home",
+        "Velvet Throw Blanket": "Home", "LED Mood Lamp": "Home",
+
+        "Carbon Fiber Tennis Racket": "Sports", "ProFit Yoga Mat": "Sports", "TrailMax Running Shoes": "Sports",
+        "SpeedX Bicycle Helmet": "Sports", "UltraGrip Soccer Ball": "Sports",
+
+        "UrbanWear Denim Jacket": "Fashion", "Classic Leather Boots": "Fashion", "Elegant Silk Scarf": "Fashion",
+        "StreetFit Hoodie": "Fashion", "Gold Hoop Earrings": "Fashion",
+
+        "The Edge of Tomorrow": "Books", "Mastering Data Science": "Books", "A Brief History of AI": "Books",
+        "The Art of Minimalism": "Books", "Cooking for Coders": "Books"
+    }
+
+    for name in product_names:
+        price = round(random.uniform(10.0, 1000.0), 2)
+        category = categories[name]
         cur.execute("""
             INSERT INTO product (name, price, category)
             VALUES (%s, %s, %s)
-        """, (
-            fake.word().capitalize(),
-            round(random.uniform(10.0, 1000.0), 2),
-            random.choice(categories)
-        ))
+        """, (name, price, category))
+
     conn.commit()
 
 # Generate orders
