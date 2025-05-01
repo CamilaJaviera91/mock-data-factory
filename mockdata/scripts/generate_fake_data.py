@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS orders (
 conn.commit()
 
 # Generate clients
-def generate_clients(n=100):
+def generate_clients(n=200):
     for _ in range(n):
         cur.execute("""
             INSERT INTO client (name, email, address, city, country)
@@ -100,7 +100,7 @@ def generate_products():
     conn.commit()
 
 # Generate orders
-def generate_orders(n=200):
+def generate_orders(n=500):
     for _ in range(n):
         client_id = random.randint(1, 100)
         product_id = random.randint(1, 50)
