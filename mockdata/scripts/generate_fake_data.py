@@ -63,7 +63,7 @@ conn.commit()
 print("✅ Tables created or verified.")
 
 # Generate clients
-def generate_clients(n=200):
+def generate_clients(n=10000):
     for _ in range(n):
         cur.execute("""
             INSERT INTO client (name, email, address, city, country)
@@ -128,7 +128,7 @@ def generate_products():
     print(f"✅ Inserted {len(product_names)} products.")
 
 # Generate orders
-def generate_orders(n=500):
+def generate_orders(n=50000):
     for _ in range(n):
         client_id = random.randint(1, 200)
         product_id = random.randint(1, 30)  # Use the correct range based on actual inserted products
