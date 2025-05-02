@@ -1,14 +1,26 @@
 from faker import Faker
 import psycopg2
 import random
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_SCHEMA = os.getenv("DB_SCHEMA")
 
 # Configure PostgreSQL connection
 try:
     conn = psycopg2.connect(
-        host="localhost",     # Change this if your DB is on another host
-        database="postgres",  # Change to your actual database name
-        user="admin",         # Your PostgreSQL username
-        password="admin123"   # Your PostgreSQL password
+        host=DB_HOST,
+        port=DB_PORT,
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD
     )
     cur = conn.cursor()
     print("✅ Successfully connected to PostgreSQL.")
@@ -17,6 +29,8 @@ except Exception as e:
     exit()
 
 fake = Faker()
+
+cur.execute(f"SET search_path TO {DB_SCHEMA};")
 
 # Create tables if they don't exist
 cur.execute("""
