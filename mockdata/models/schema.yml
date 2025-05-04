@@ -6,3 +6,4 @@ sources:
       - name: client
       - name: product
       - name: orders
+      - name: salesman
