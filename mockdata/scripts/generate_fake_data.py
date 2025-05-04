@@ -49,11 +49,18 @@ CREATE TABLE IF NOT EXISTS product (
     price NUMERIC(10,2),
     category TEXT
 );
+            
+CREATE TABLE IF NOT EXISTS salesman (
+    salesman_id SERIAL PRIMARY KEY,
+    name TEXT,
+    city TEXT
+);
 
 CREATE TABLE IF NOT EXISTS orders (
     order_id SERIAL PRIMARY KEY,
     client_id INTEGER REFERENCES client(client_id),
     product_id INTEGER REFERENCES product(product_id),
+    salesman_id INTEGER REFERENCES salesman(salesman_id),
     order_date DATE,
     quantity INTEGER,
     total NUMERIC(10,2)
@@ -127,20 +134,35 @@ def generate_products():
     conn.commit()    
     print(f"✅ Inserted {len(product_names)} products.")
 
+# Generate clients
+def generate_salesman(n=50):
+    for _ in range(n):
+        cur.execute("""
+            INSERT INTO salesman (name, city)
+            VALUES (%s, %s)
+        """, (
+            fake.name(),
+            fake.city()
+        ))
+    conn.commit()
+    print(f"✅ Inserted {n} salesman.")
+
 # Generate orders
 def generate_orders(n=50000):
     for _ in range(n):
         client_id = random.randint(1, 200)
         product_id = random.randint(1, 30)  # Use the correct range based on actual inserted products
+        salesman_id = random.randint(1, 50)
         quantity = random.randint(1, 5)
         unit_price = round(random.uniform(10.0, 1000.0), 2)
         total = round(quantity * unit_price, 2)
         cur.execute("""
-            INSERT INTO orders (client_id, product_id, order_date, quantity, total)
-            VALUES (%s, %s, %s, %s, %s)
+            INSERT INTO orders (client_id, product_id, salesman_id, order_date, quantity, total)
+            VALUES (%s, %s, %s, %s, %s, %s)
         """, (
             client_id,
             product_id,
+            salesman_id,
             fake.date_this_decade(),
             quantity,
             total
@@ -151,6 +173,7 @@ def generate_orders(n=50000):
 # Run generation functions
 generate_clients()
 generate_products()
+generate_salesman()
 generate_orders()
 
 # Close connection
