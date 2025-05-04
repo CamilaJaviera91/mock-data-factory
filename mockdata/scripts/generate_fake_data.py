@@ -62,8 +62,7 @@ CREATE TABLE IF NOT EXISTS orders (
     product_id INTEGER REFERENCES product(product_id),
     salesman_id INTEGER REFERENCES salesman(salesman_id),
     order_date DATE,
-    quantity INTEGER,
-    total NUMERIC(10,2)
+    quantity INTEGER
 );
 """)
 conn.commit()
