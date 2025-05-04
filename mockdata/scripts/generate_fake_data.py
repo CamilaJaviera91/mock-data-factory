@@ -155,17 +155,15 @@ def generate_orders(n=50000):
         salesman_id = random.randint(1, 50)
         quantity = random.randint(1, 5)
         unit_price = round(random.uniform(10.0, 1000.0), 2)
-        total = round(quantity * unit_price, 2)
         cur.execute("""
-            INSERT INTO orders (client_id, product_id, salesman_id, order_date, quantity, total)
+            INSERT INTO orders (client_id, product_id, salesman_id, order_date, quantity)
             VALUES (%s, %s, %s, %s, %s, %s)
         """, (
             client_id,
             product_id,
             salesman_id,
             fake.date_this_decade(),
-            quantity,
-            total
+            quantity
         ))
     conn.commit()
     print(f"✅ Inserted {n} orders.")
