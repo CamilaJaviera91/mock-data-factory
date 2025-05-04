@@ -158,6 +158,14 @@ You'll see log messages indicating progress:
 | price       | NUMERIC(10,2)       |
 | category    | TEXT                |
 
+```salesman```
+
+| Column      | Type               |
+|-------------|--------------------|
+| salesman_id | SERIAL PRIMARY KEY |
+| name        | TEXT               |
+| city        | TEXT               |
+
 ```orders```
 | Column      | Type                    |
 |-------------|-------------------------|
@@ -172,7 +180,7 @@ You'll see log messages indicating progress:
 
 ## 🛠️ Customization
 
-To generate more or fewer rows, change the arguments in generate_clients(), generate_products(), or generate_orders(). You can modify the list of product names and categories to suit your business domain.
+To generate more or fewer rows, change the arguments in generate_clients(), generate_products(), generate_salesman() or generate_orders(). You can modify the list of product names and categories to suit your business domain.
 
 ---
 
