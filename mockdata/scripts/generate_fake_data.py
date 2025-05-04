@@ -3,6 +3,7 @@ import psycopg2
 import random
 from dotenv import load_dotenv
 import os
+from psycopg2.extras import execute_batch
 
 load_dotenv()
 
@@ -70,17 +71,11 @@ print("✅ Tables created or verified.")
 
 # Generate clients
 def generate_clients(n=10000):
-    for _ in range(n):
-        cur.execute("""
-            INSERT INTO client (name, email, address, city, country)
-            VALUES (%s, %s, %s, %s, %s)
-        """, (
-            fake.name(),
-            fake.email(),
-            fake.street_address(),
-            fake.city(),
-            fake.country()
-        ))
+    data = [(fake.name(), fake.email(), fake.street_address(), fake.city(), fake.country()) for _ in range(n)]
+    execute_batch(cur, """
+        INSERT INTO client (name, email, address, city, country)
+        VALUES (%s, %s, %s, %s, %s)
+    """, data)
     conn.commit()
     print(f"✅ Inserted {n} clients.")
 
@@ -133,16 +128,13 @@ def generate_products():
     conn.commit()    
     print(f"✅ Inserted {len(product_names)} products.")
 
-# Generate clients
+# Generate salesman
 def generate_salesman(n=50):
-    for _ in range(n):
-        cur.execute("""
-            INSERT INTO salesman (name, city)
-            VALUES (%s, %s)
-        """, (
-            fake.name(),
-            fake.city()
-        ))
+    data = [(fake.name(), fake.city()) for _ in range(n)]
+    execute_batch(cur, """
+        INSERT INTO client (name, city)
+        VALUES (%s, %s)
+    """, data)
     conn.commit()
     print(f"✅ Inserted {n} salesman.")
 
@@ -153,10 +145,9 @@ def generate_orders(n=50000):
         product_id = random.randint(1, 30)  # Use the correct range based on actual inserted products
         salesman_id = random.randint(1, 50)
         quantity = random.randint(1, 5)
-        unit_price = round(random.uniform(10.0, 1000.0), 2)
         cur.execute("""
             INSERT INTO orders (client_id, product_id, salesman_id, order_date, quantity)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s)
         """, (
             client_id,
             product_id,
