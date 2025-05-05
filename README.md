@@ -8,15 +8,15 @@ This repository is a project designed to generate large-scale synthetic datasets
 
 ## 🔧 Key Features
 
-- SQL-Based Data Generation: Utilizes SQL for creating synthetic data tailored for BigQuery environments.
+- **SQL-Based Data Generation:** Utilizes SQL for creating synthetic data tailored for BigQuery environments.
 
-- Modular Models: Includes separate models for customers, products, and orders, allowing for flexible data generation.
+- **Modular Models:** Includes separate models for customers, products, and orders, allowing for flexible data generation.
 
-- Parameterized Row Volume: Supports generating datasets with varying sizes (e.g., 10K, 1M rows) to suit different testing needs.
+- **Parameterized Row Volume:** Supports generating datasets with varying sizes (e.g., 10K, 1M rows) to suit different testing needs.
 
-- DBT-Ready Structure: Structured to integrate seamlessly with DBT (Data Build Tool) for scalable development.
+- **DBT-Ready Structure:** Structured to integrate seamlessly with DBT (Data Build Tool) for scalable development.
 
-- Pipeline Integration: Designed for easy integration with data pipeline tools like Airflow and Cloud Composer.
+- **Pipeline Integration:** Designed for easy integration with data pipeline tools like Airflow and Cloud Composer.
 
 ---
 
@@ -70,9 +70,9 @@ dbt test
 
 ---
 
-## 📦 Script: generate_fake_data
+## 🐍 Python Script: generate_fake_data.py
 
-- This script generates synthetic data for a PostgreSQL database using the Faker library. It creates and populates three tables: client, product, and orders, useful for testing analytics workflows, dashboards, or data pipelines.
+Located in the mockdata/scripts/ directory, this Python script uses the Faker library to generate synthetic data for a PostgreSQL database. It creates and populates three tables: client, product, and orders. The script is customizable and can be extended to fit specific testing scenarios.
 
 ---
 
