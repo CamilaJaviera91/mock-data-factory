@@ -72,7 +72,9 @@ dbt test
 
 ## 🐍 Python Script: generate_fake_data.py
 
-Located in the mockdata/scripts/ directory, this Python script uses the Faker library to generate synthetic data for a PostgreSQL database. It creates and populates three tables: client, product, and orders. The script is customizable and can be extended to fit specific testing scenarios.
+- Located in the mockdata/scripts/ directory, this Python script uses the Faker library to generate synthetic data for a PostgreSQL database. It creates and populates three tables: client, product, and orders. 
+
+- The script is customizable and can be extended to fit specific testing scenarios.
 
 ---
 
