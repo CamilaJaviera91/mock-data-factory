@@ -78,7 +78,13 @@ print("✅ Tables created or verified.")
 
 # Generate clients
 def generate_clients(n=10000):
-    data = [(fake.name(), fake.email(), fake.street_address(), fake.city(), fake.country()) for _ in range(n)]
+
+    city_maule = ["Talca", "Curicó", "Linares", "Molina", "San Javier", "Cauquenes", 
+                  "Chanco", "Colbún", "Rauco", "Villa Alegre", "Longaví", "Constitución", 
+                  "Pencahue", "Sagrada Familia", "Hualañé", "Teno", "Licantén", 
+                  "Empedrado", "Pelarco", "San Clemente"]
+    
+    data = [(fake.name(), fake.email(), fake.street_address(), random.choice(city_maule), fake.country()) for _ in range(n)]
     execute_batch(cur, """
         INSERT INTO client (name, email, address, city, country)
         VALUES (%s, %s, %s, %s, %s)
@@ -89,13 +95,25 @@ def generate_clients(n=10000):
 
     # Generate clients
 def generate_store(n=10):
-    data = [(fake.name(), fake.city()) for _ in range(n)]
+    city_maule = ["Talca", "Curicó", "Linares", "Molina", "Cauquenes", 
+                  "Villa Alegre", "Constitución", "Teno", "Longaví", "San Clemente"]
+    
+    if n > len(city_maule):
+        print("❌ Not enough unique cities to generate the requested number of stores.")
+        return
+    
+    # Select unique cities for each store
+    selected_cities = random.sample(city_maule, n)
+    data = [(fake.company(), city) for city in selected_cities]
+    
     execute_batch(cur, """
         INSERT INTO store (name, city)
         VALUES (%s, %s)
     """, data)
     conn.commit()
     print(f"✅ Inserted {n} stores.")
+
+
 
 # Generate products
 def generate_products():
