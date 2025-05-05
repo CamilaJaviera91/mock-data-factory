@@ -29,7 +29,7 @@ except Exception as e:
     print("❌ Failed to connect to PostgreSQL:", e)
     exit()
 
-fake = Faker()
+fake = Faker('es_CL')
 
 cur.execute(f"SET search_path TO {DB_SCHEMA};")
 
@@ -42,6 +42,12 @@ CREATE TABLE IF NOT EXISTS client (
     address TEXT,
     city TEXT,
     country TEXT
+);
+            
+CREATE TABLE IF NOT EXISTS store (
+    store_id SERIAL PRIMARY KEY,
+    name TEXT,
+    city TEXT
 );
 
 CREATE TABLE IF NOT EXISTS product (
@@ -62,6 +68,7 @@ CREATE TABLE IF NOT EXISTS orders (
     client_id INTEGER REFERENCES client(client_id),
     product_id INTEGER REFERENCES product(product_id),
     salesman_id INTEGER REFERENCES salesman(salesman_id),
+    store_id INTEGER REFERENCES store(store_id),
     order_date DATE,
     quantity INTEGER
 );
@@ -78,6 +85,17 @@ def generate_clients(n=10000):
     """, data)
     conn.commit()
     print(f"✅ Inserted {n} clients.")
+
+
+    # Generate clients
+def generate_store(n=10):
+    data = [(fake.name(), fake.city()) for _ in range(n)]
+    execute_batch(cur, """
+        INSERT INTO store (name, city)
+        VALUES (%s, %s)
+    """, data)
+    conn.commit()
+    print(f"✅ Inserted {n} stores.")
 
 # Generate products
 def generate_products():
@@ -132,34 +150,36 @@ def generate_products():
 def generate_salesman(n=50):
     data = [(fake.name(), fake.city()) for _ in range(n)]
     execute_batch(cur, """
-        INSERT INTO client (name, city)
-        VALUES (%s, %s)
-    """, data)
+    INSERT INTO salesman (name, city)
+    VALUES (%s, %s)""", data)
+
     conn.commit()
     print(f"✅ Inserted {n} salesman.")
 
 # Generate orders
 def generate_orders(n=50000):
+    data = []
     for _ in range(n):
         client_id = random.randint(1, 200)
         product_id = random.randint(1, 30)  # Use the correct range based on actual inserted products
         salesman_id = random.randint(1, 50)
+        store_id = random.randint(1, 10)
         quantity = random.randint(1, 5)
-        cur.execute("""
-            INSERT INTO orders (client_id, product_id, salesman_id, order_date, quantity)
-            VALUES (%s, %s, %s, %s, %s)
-        """, (
-            client_id,
-            product_id,
-            salesman_id,
-            fake.date_this_decade(),
-            quantity
-        ))
+        order_date = fake.date_this_decade()  # Generate a random date within this decade
+        data.append((client_id, product_id, salesman_id, store_id, order_date, quantity))
+
+    # Insert multiple rows at once for better performance
+    execute_batch(cur, """
+        INSERT INTO orders (client_id, product_id, salesman_id, store_id, order_date, quantity)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    """, data)
+    
     conn.commit()
     print(f"✅ Inserted {n} orders.")
 
 # Run generation functions
 generate_clients()
+generate_store()
 generate_products()
 generate_salesman()
 generate_orders()
