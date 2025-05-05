@@ -52,7 +52,7 @@ This repository is a project designed to generate large-scale synthetic datasets
 
 ---
 
-## Using the starter project
+## 🧪 DBT Integration
 
 Try running the following commands.
 
@@ -76,7 +76,7 @@ Located in the mockdata/scripts/ directory, this Python script uses the Faker li
 
 ---
 
-### 📋 Features
+### 🔧 Key Features
 
 - SQL-based data generation tailored for BigQuery.
 
@@ -197,6 +197,14 @@ I have other related repositories that might be of interest:​
 
 - ```dbt-transformations-sql-mock-data:``` This project contains transformations and documentation for the data model generated in ```sql-mock-data```.​
     - [repository](https://github.com/CamilaJaviera91/dbt-transformations-sql-mock-data)
+
+---
+
+## 💭 Final Thoughts
+
+- The mock-data-factory repository offers a robust framework for generating synthetic datasets, making it a valuable tool for data engineers and analysts working with BigQuery and DBT. Its modular design and integration capabilities make it adaptable to various testing and development scenarios.
+
+- If you need assistance setting up the project or customizing it for your specific use case, feel free to ask!
 
 ---
 
