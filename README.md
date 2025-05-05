@@ -6,13 +6,17 @@
 
 ---
 
-## 📌 Features
+## 🔧 Features
 
-- **SQL-based** data generation for **BigQuery**
-- Modular models for customers, products, salesman and orders
-- Parameterized row volume (e.g. 10K, 1M, etc.)
-- **DBT-ready** structure for scalable development
-- Easy integration with **data pipeline tools** (Airflow, Cloud Composer, etc.)
+- **SQL-Based Data Generation:** Utilizes SQL for creating synthetic data tailored for BigQuery environments.
+
+- **Modular Models:** Includes separate models for customers, products, and orders, allowing for flexible data generation.
+
+- **Parameterized Row Volume:** Supports generating datasets with varying sizes (e.g., 10K, 1M rows) to suit different testing needs.
+
+- **DBT-Ready Structure:** Structured to integrate seamlessly with DBT (Data Build Tool) for scalable development.
+
+- **Pipeline Integration:** Designed for easy integration with data pipeline tools like Airflow and Cloud Composer.
 
 ---
 
