@@ -1,12 +1,12 @@
 # 🏭 Mock Data Factory
 
-- Generate large-scale synthetic datasets using **SQL** and **BigQuery**.
+## 📌 Description
 
-- This project is ideal for testing, prototyping, and demonstrating **data pipelines**, **analytics**, and **dashboards** with realistic but **fake data**.
+This repository is a project designed to generate large-scale synthetic datasets using SQL and BigQuery. It's particularly useful for testing, prototyping, and demonstrating data pipelines, analytics, and dashboards with realistic but fake data.
 
 ---
 
-## 📌 Features
+## 🔧 Key Features
 
 - SQL-Based Data Generation: Utilizes SQL for creating synthetic data tailored for BigQuery environments.
 
