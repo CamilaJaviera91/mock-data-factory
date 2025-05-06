@@ -7,3 +7,22 @@ sources:
       - name: product
       - name: orders
       - name: salesman
+
+models:
+  - name: order_summary_by_store
+    description: >
+      Sales summary by store and year, calculating the total amount
+      of sales per year and store combination.
+    columns:
+      - name: year
+        description: The year extracted from the order date.
+        tests:
+          - not_null
+      - name: store
+        description: The store identifier in the format city-store_id.
+        tests:
+          - not_null
+      - name: total
+        description: Total sales amount calculated as price * quantity.
+        tests:
+          - not_null
