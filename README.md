@@ -2,7 +2,7 @@
 
 ## 📌 Description
 
-- This repository is a project designed to generate large-scale synthetic datasets using SQL and BigQuery. 
+- This repository is a project designed to generate large-scale synthetic datasets using SQL, Postgres and BigQuery. 
 
 - It's particularly useful for testing, prototyping, and demonstrating data pipelines, analytics, and dashboards with realistic but fake data.
 
