@@ -156,7 +156,6 @@ You'll see log messages indicating progress:
 | email     | TEXT               |
 | address   | TEXT               |
 | city      | TEXT               |
-| country   | TEXT               |
 
 ```product```
 | Column      | Type                |
