@@ -2,9 +2,9 @@
 
 ## 📌 Description
 
-- This repository is a project designed to generate large-scale synthetic datasets using SQL, Postgres and BigQuery. 
+- This repository is a project designed to generate large-scale synthetic datasets using **SQL, Postgres** and **BigQuery**.
 
-- It's particularly useful for testing, prototyping, and demonstrating data pipelines, analytics, and dashboards with realistic but fake data.
+- It's particularly useful for testing, prototyping, and demonstrating **data pipelines**, **analytics**, and **dashboards** with realistic but fake data.
 
 ---
 
@@ -74,7 +74,7 @@ dbt test
 
 ## 🐍 Python Script: generate_fake_data.py
 
-- Located in the mockdata/scripts/ directory, this Python script uses the Faker library to generate synthetic data for a PostgreSQL database. It creates and populates three tables: client, product, and orders. 
+- Located in the **mockdata/scripts/** directory, this Python script uses the Faker library to generate synthetic data for a PostgreSQL database. It creates and populates three tables: client, product, and orders. 
 
 - The script is customizable and can be extended to fit specific testing scenarios.
 
@@ -205,7 +205,7 @@ I have other related repositories that might be of interest:​
 
 ## 💭 Final Thoughts
 
-- The mock-data-factory repository offers a robust framework for generating synthetic datasets, making it a valuable tool for data engineers and analysts working with BigQuery and DBT. Its modular design and integration capabilities make it adaptable to various testing and development scenarios.
+- The **mock-data-factory** repository offers a robust framework for generating synthetic datasets, making it a valuable tool for data engineers and analysts working with BigQuery and DBT. Its modular design and integration capabilities make it adaptable to various testing and development scenarios.
 
 - If you need assistance setting up the project or customizing it for your specific use case, feel free to ask!
 
@@ -223,4 +223,4 @@ I have other related repositories that might be of interest:​
 
 ## 📄 License
 
-This project is released under the MIT License.
+This project is released under the **MIT License**.
