@@ -40,8 +40,7 @@ CREATE TABLE IF NOT EXISTS client (
     name TEXT,
     email TEXT,
     address TEXT,
-    city TEXT,
-    country TEXT
+    city TEXT
 );
             
 CREATE TABLE IF NOT EXISTS store (
@@ -77,17 +76,25 @@ conn.commit()
 print("✅ Tables created or verified.")
 
 # Generate clients
-def generate_clients(n=10000):
+def generate_clients(n=1000):
 
     city_maule = ["Talca", "Curicó", "Linares", "Molina", "San Javier", "Cauquenes", 
                   "Chanco", "Colbún", "Rauco", "Villa Alegre", "Longaví", "Constitución", 
                   "Pencahue", "Sagrada Familia", "Hualañé", "Teno", "Licantén", 
                   "Empedrado", "Pelarco", "San Clemente"]
-    
-    data = [(fake.name(), fake.email(), fake.street_address(), random.choice(city_maule), fake.country()) for _ in range(n)]
+
+    data = []
+    for _ in range(n):
+        full_name = fake.name()
+        first_name, last_name = full_name.split(" ")[0], full_name.split(" ")[-1]
+        email = f"{first_name.lower()}.{last_name.lower()}@stores.com"
+        address = fake.street_address()
+        city = random.choice(city_maule)
+        data.append((full_name, email, address, city))
+
     execute_batch(cur, """
-        INSERT INTO client (name, email, address, city, country)
-        VALUES (%s, %s, %s, %s, %s)
+        INSERT INTO client (name, email, address, city)
+        VALUES (%s, %s, %s, %s)
     """, data)
     conn.commit()
     print(f"✅ Inserted {n} clients.")
