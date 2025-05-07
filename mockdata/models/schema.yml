@@ -10,7 +10,7 @@ sources:
       - name: store
 
 models:
-  - name: order_summary_by_store
+  - name: resume
     description: >
       Sales summary by store and year, calculating the total amount
       of sales per year and store combination.
