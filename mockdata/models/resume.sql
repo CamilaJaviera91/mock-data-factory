@@ -14,11 +14,11 @@ with resume as (
         (p.price * o.quantity) as total,
         sm.name as salesman,
         c.name as client
-    from {{ ref('orders') }} o
-    join {{ ref('store') }} s on o.store_id = s.store_id
-    join {{ ref('product') }} p on o.product_id = p.product_id
-    join {{ ref('salesman') }} sm on o.salesman_id = sm.salesman_id
-    join {{ ref('client') }} c on o.client_id = c.client_id
+    from {{ source('test', 'orders') }} o
+    join {{ source('test', 'store') }} s on o.store_id = s.store_id
+    join {{ source('test', 'product') }} p on o.product_id = p.product_id
+    join {{ source('test', 'salesman') }} sm on o.salesman_id = sm.salesman_id
+    join {{ source('test', 'client') }} c on o.client_id = c.client_id
 )
 
 select 
