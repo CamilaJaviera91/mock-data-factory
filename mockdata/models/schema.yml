@@ -7,6 +7,7 @@ sources:
       - name: product
       - name: orders
       - name: salesman
+      - name: store
 
 models:
   - name: order_summary_by_store
