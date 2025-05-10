@@ -26,6 +26,45 @@ This project is designed to generate large-scale synthetic datasets using SQL an
 
 ---
 
+## 🚀 How to Get Started
+
+1. Clone the repository:
+
+```
+git clone https://github.com/CamilaJaviera91/mock-data-factory.git
+cd mock-data-factory/mockdata
+```
+
+2. Install dependencies:
+
+Make sure Python and pip are installed, then run:
+
+```
+pip install -r requirements.txt
+```
+
+3. Configure DBT:
+
+Ensure DBT is installed and set up to connect to your BigQuery project.
+
+4. Generate synthetic data:
+
+Run the Python script:
+
+```
+python scripts/generate_fake_data.py
+```
+
+5. Run DBT models:
+
+Compile and execute the models to populate data in BigQuery:
+
+```
+dbt run
+```
+
+---
+
 ## 🗂️ Project Structure
 
 The repository follows a structure compatible with DBT (Data Build Tool), which makes it easy to integrate with orchestration tools like Airflow or Cloud Composer.
