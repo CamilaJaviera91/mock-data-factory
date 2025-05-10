@@ -149,12 +149,6 @@ Make sure you have the following installed:
 
 - PostgreSQL (running locally or accessible remotely)
 
-Install dependencies:
-
-```
-pip install faker psycopg2
-```
-
 #### 🔗 Step 2: Configure Database Connection
 
 Update the PostgreSQL credentials in the script:
