@@ -28,6 +28,8 @@ This project is designed to generate large-scale synthetic datasets using SQL an
 
 ## 🗂️ Project Structure
 
+The repository follows a structure compatible with DBT (Data Build Tool), which makes it easy to integrate with orchestration tools like Airflow or Cloud Composer.
+
 ```
 ├── .gitignore
 ├── logs
