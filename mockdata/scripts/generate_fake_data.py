@@ -35,7 +35,7 @@ cur.execute(f"SET search_path TO {DB_SCHEMA};")
 
 # Create tables if they don't exist
 cur.execute("""
-CREATE TABLE IF NOT EXISTS client (
+CREATE TABLE IF NOT EXISTS test.client (
     client_id SERIAL PRIMARY KEY,
     name TEXT,
     email TEXT,
@@ -43,26 +43,26 @@ CREATE TABLE IF NOT EXISTS client (
     city TEXT
 );
             
-CREATE TABLE IF NOT EXISTS store (
+CREATE TABLE IF NOT EXISTS test.store (
     store_id SERIAL PRIMARY KEY,
     name TEXT,
     city TEXT
 );
 
-CREATE TABLE IF NOT EXISTS product (
+CREATE TABLE IF NOT EXISTS test.product (
     product_id SERIAL PRIMARY KEY,
     name TEXT,
     price NUMERIC(10,2),
     category TEXT
 );
             
-CREATE TABLE IF NOT EXISTS salesman (
+CREATE TABLE IF NOT EXISTS test.salesman (
     salesman_id SERIAL PRIMARY KEY,
     name TEXT,
     city TEXT
 );
 
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE IF NOT EXISTS test.orders (
     order_id SERIAL PRIMARY KEY,
     client_id INTEGER REFERENCES client(client_id),
     product_id INTEGER REFERENCES product(product_id),
